@@ -1,5 +1,5 @@
 import React from "react";
-import { increment, decrement } from "./action";
+import * as actions from "./action";
 import { connect } from "../../react-redux";
 class Counter extends React.Component {
   render() {
@@ -20,9 +20,6 @@ export default connect(
     };
   },
   () => {
-    return {
-      increment,
-      decrement
-    };
+    return actions
   }
 )(Counter);
