@@ -5,11 +5,9 @@ import { Link,Route,Switch } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
 import Counter from "./page/Counter";
 import Counter2 from "./page/Counter2";
-import { Provider } from "react-redux";
-// import { Provider } from "./react-redux";
+import { Provider } from "./react-redux";
 
-import { createStore, applyMiddleware } from "redux";
-// import { createStore, applyMiddleware } from "./redux";
+import { createStore, applyMiddleware } from "./redux";
 import createRootReducer from "./page/reducers";
 const history = createHashHistory();
 const reducers = createRootReducer(history);
@@ -17,7 +15,7 @@ const store = createStore(reducers, applyMiddleware(loggerMiddleware));
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-        <Route path="/counter2" component={Counter2} />
+        <Route path="/counter2" compoent={Counter2} />
         <Route path="/counter" render={() => <Counter />} />
     </ConnectedRouter>
   </Provider>,

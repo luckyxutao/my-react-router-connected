@@ -1,5 +1,6 @@
 import React from "react";
 import { bindActionCreators } from "../redux";
+// import { bindActionCreators } from "../redux";
 import { ReactReduxContext } from "./Context";
 
 export default function(mapStateProps, mapDispatchToProps) {

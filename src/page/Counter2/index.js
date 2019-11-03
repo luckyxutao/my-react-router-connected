@@ -1,15 +1,24 @@
 import React from "react";
-import { increment, decrement } from "./action";
-import { connect } from "../../react-redux";
+import * as actions from "./action";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+// import { connect } from "../../react-redux";
 class Counter extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <div style={{backgroundColor:'pink'}}>
+      <div style={{ backgroundColor: "pink" }}>
         <p>{this.props.counterData.number}</p>
-        <button onClick={()=>this.props.increment()}>增加1111</button>
+        <button
+          onClick={() => {
+            this.props.increment();
+            this.props.history.push("/counter");
+          }}
+        >
+          增加2222
+        </button>
       </div>
-    )
+    );
   }
 }
 
@@ -19,10 +28,7 @@ export default connect(
       counterData: state.Counter2
     };
   },
-  () => {
-    return {
-      increment,
-      decrement
-    };
+  dispatch => {
+    return bindActionCreators(actions, dispatch);
   }
 )(Counter);

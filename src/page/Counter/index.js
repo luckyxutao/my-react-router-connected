@@ -1,7 +1,14 @@
 import React from "react";
 import * as actions from "./action";
-import { connect } from "../../react-redux";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+// import { connect } from "../../react-redux";
 class Counter extends React.Component {
+  constructor(props) {
+    super(props)
+    const { dispatch } = props
+    // this.boundActionCreators = bindActionCreators(actions,dispatch);
+  }
   render() {
     console.log(this.props);
     return (
@@ -18,8 +25,6 @@ export default connect(
     return {
       counterData: state.Counter
     };
-  },
-  () => {
-    return actions
-  }
-)(Counter);
+  },dispatch=>{
+    return bindActionCreators(actions,dispatch);
+  })(Counter);
