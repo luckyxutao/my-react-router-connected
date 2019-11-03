@@ -1,9 +1,8 @@
 import React from "react";
 import * as actions from "./action";
-import { bindActionCreators } from "redux";
-import { push } from 'connected-react-router'
-import { connect } from "react-redux";
-// import { connect } from "../../react-redux";
+import { bindActionCreators } from "../../redux";
+import { connect } from "../../react-redux";
+import { push } from "../../connected-react-router";
 class Counter extends React.Component {
   render() {
     console.log(this.props);

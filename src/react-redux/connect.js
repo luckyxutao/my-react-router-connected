@@ -1,6 +1,4 @@
 import React from "react";
-import { bindActionCreators } from "../redux";
-// import { bindActionCreators } from "../redux";
 import { ReactReduxContext } from "./Context";
 
 export default function(mapStateProps, mapDispatchToProps) {
@@ -24,10 +22,7 @@ export default function(mapStateProps, mapDispatchToProps) {
       }
 
       render() {
-        const boundedActionCreators = bindActionCreators(
-          mapDispatchToProps(),
-          this.context.store.dispatch
-        );
+        const boundedActionCreators = mapDispatchToProps(this.context.store.dispatch)
         // {
         //     aaa : function(){
         //         return { type:'xxx'}
