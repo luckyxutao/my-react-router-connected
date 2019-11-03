@@ -15,3 +15,19 @@ ReactDOM.render(
     </Provider>
     ,document.getElementById('root')
 )
+
+function thunkMiddleware(store) {
+  return function(next) {
+    return function(action) {
+      next(action);
+    };
+  };
+};
+
+function loggerMiddleware(store) {
+    return function(next) {
+      return function(action) {
+        next(action);
+      };
+    };
+  };
