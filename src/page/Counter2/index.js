@@ -1,6 +1,7 @@
 import React from "react";
 import * as actions from "./action";
 import { bindActionCreators } from "redux";
+import { push } from 'connected-react-router'
 import { connect } from "react-redux";
 // import { connect } from "../../react-redux";
 class Counter extends React.Component {
@@ -12,7 +13,7 @@ class Counter extends React.Component {
         <button
           onClick={() => {
             this.props.increment();
-            this.props.history.push("/counter");
+            this.props.push("/counter");
           }}
         >
           增加2222
@@ -29,6 +30,6 @@ export default connect(
     };
   },
   dispatch => {
-    return bindActionCreators(actions, dispatch);
+    return bindActionCreators({...actions,push}, dispatch);
   }
 )(Counter);
